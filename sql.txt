@@ -1,0 +1,40 @@
+
+Name - David Owusu - Acheaw 
+Login - do336
+// selecting and sorting out specific queries based on Question asked in Assignments then using php to grab the data from database to use on data page  
+
+
+ SELECT instructor,start_time 
+FROM Timeslot 
+WHERE cid ='c001'
+ ORDER BY start_time DESC;
+
+
+
+
+
+SELECT Timeslot.instructor , Timeslot.start_time  
+FROM Timeslot JOIN Class ON Timeslot.cid = Class.cid 
+WHERE course = 'Yoga' ORDER BY start_time DESC;
+
+
+ SELECT DISTINCT  Timeslot.instructor , Class.course  From Timeslot JOIN Class ON Timeslot.Cid=Class.cid  ORDER BY Timeslot.instructor ASC;
+
+
+
+SELECT Class.cid, Class.course , Timeslot.instructor , Timeslot.start_time , Booking.reservation 
+
+FROM Timeslot JOIN Booking ON Timeslot.tid = Booking.tid JOIN User ON User.uid = Booking.uid JOIN Class ON Timeslot.cid = Class.cid
+WHERE Booking.reservation = '1' AND   User.uid = 'u001';
+
+
+
+SELECT COUNT( Booking.reservation) , User.uid  
+FROM Booking JOIN User ON Booking.uid = User.uid JOIN Timeslot ON Booking.tid = Timeslot.tid  
+WHERE Booking.reservation = '1' AND User.uid = 'u001' ;
+
+
+
+
+
+
